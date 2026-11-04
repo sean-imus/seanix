@@ -5,14 +5,14 @@
 }:
 {
   imports = [
-    ./features/claude-code.nix
-    ./features/disk.nix
-    ./features/hardware-dev.nix
-    ./features/lockscreen.nix
-    ./features/niri
-    ./features/printing.nix
-    ./features/rdp-work.nix
-    ./features/virtualisation.nix
+    ./nixos/claude-code.nix
+    ./nixos/disk.nix
+    ./nixos/hardware-dev.nix
+    ./nixos/lockscreen.nix
+    ./nixos/niri.nix
+    ./nixos/printing.nix
+    ./nixos/rdp-work.nix
+    ./nixos/virtualisation.nix
     ./sean.nix
   ];
 
