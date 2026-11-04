@@ -27,7 +27,7 @@
     thermald.enable = true;
 
     logind.settings.Login = {
-      HandleLidSwitch = "lock";
+      HandleLidSwitch = "suspend-then-hibernate";
       HandleLidSwitchExternalPower = "lock";
       HandleLidSwitchDocked = "ignore";
     };
@@ -88,6 +88,8 @@
   environment.defaultPackages = [ ];
 
   security.rtkit.enable = true;
+
+  systemd.sleep.settings.Sleep.HibernateDelaySec = "2h";
 
   boot = {
     supportedFilesystems = [ "ntfs" ];
