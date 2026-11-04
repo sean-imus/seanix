@@ -1,7 +1,5 @@
 { pkgs, ... }:
 {
-  security.pam.services.swaylock = { };
-
   home-manager.sharedModules = [
     (
       { theme, ... }:

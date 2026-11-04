@@ -1,7 +1,4 @@
 { theme, ... }:
-let
-  c = name: theme.hex theme.${name};
-in
 {
   programs.waybar = {
     enable = true;
@@ -66,16 +63,16 @@ in
       }
       window#waybar {
         background: transparent;
-        color: ${c "fg"};
+        color: ${theme.hex.fg};
       }
       .modules-left { margin-left: 6px; }
       .modules-right { margin-right: 6px; }
-      #power-profiles-daemon.performance { color: ${c "red"}; }
-      #power-profiles-daemon.balanced { color: ${c "yellow"}; }
-      #power-profiles-daemon.power-saver { color: ${c "green"}; }
-      #pulseaudio.muted, #pulseaudio.source-muted { color: ${c "grey0"}; }
-      #battery.charging, #battery.full { color: ${c "green"}; }
-      #battery.critical:not(.charging) { color: ${c "red"}; }
+      #power-profiles-daemon.performance { color: ${theme.hex.red}; }
+      #power-profiles-daemon.balanced { color: ${theme.hex.yellow}; }
+      #power-profiles-daemon.power-saver { color: ${theme.hex.green}; }
+      #pulseaudio.muted, #pulseaudio.source-muted { color: ${theme.hex.grey0}; }
+      #battery.charging, #battery.full { color: ${theme.hex.green}; }
+      #battery.critical:not(.charging) { color: ${theme.hex.red}; }
     '';
   };
 
@@ -84,14 +81,14 @@ in
       enable = true;
       settings = {
         font = "${theme.fontFamily} 10";
-        background-color = c "bg1";
-        text-color = c "fg";
-        border-color = c "green";
-        progress-color = "over ${c "bg3"}";
+        background-color = theme.hex.bg1;
+        text-color = theme.hex.fg;
+        border-color = theme.hex.green;
+        progress-color = "over ${theme.hex.bg3}";
         border-size = 2;
         default-timeout = 6000;
         "urgency=critical" = {
-          border-color = c "red";
+          border-color = theme.hex.red;
           default-timeout = 0;
         };
         "mode=do-not-disturb".invisible = 1;

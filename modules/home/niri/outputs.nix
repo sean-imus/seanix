@@ -27,7 +27,7 @@
           x = -3840;
           y = 0;
         };
-        "focus-at-startup" = { };
+        focus-at-startup = { };
       };
     }
   ];

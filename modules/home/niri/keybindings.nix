@@ -2,26 +2,20 @@
 let
   locked = bind: { _props.allow-when-locked = true; } // bind;
 
-  tui = app-id: args: {
+  tui = command: {
     spawn = [
       "foot"
       "--app-id"
-      app-id
+      (builtins.head command)
     ]
-    ++ args;
+    ++ command;
   };
 
-  workspaceBinds = lib.listToAttrs (
-    lib.concatMap (
-      n:
-      let
-        key = toString n;
-      in
-      [
-        (lib.nameValuePair "Mod+${key}" { focus-workspace = n; })
-        (lib.nameValuePair "Mod+Ctrl+${key}" { move-column-to-workspace = n; })
-      ]
-    ) (lib.range 1 9)
+  workspaceBinds = lib.mergeAttrsList (
+    map (n: {
+      "Mod+${toString n}".focus-workspace = n;
+      "Mod+Ctrl+${toString n}".move-column-to-workspace = n;
+    }) (lib.range 1 9)
   );
 in
 {
@@ -113,13 +107,13 @@ in
       "Mod+Space".spawn = "fuzzel";
       "Mod+T".spawn = "foot";
       "Mod+B".spawn = "chromium-privat";
-      "Mod+Ctrl+B" = tui "bluetui" [ "bluetui" ];
-      "Mod+Ctrl+A" = tui "wiremix" [
+      "Mod+Ctrl+B" = tui [ "bluetui" ];
+      "Mod+Ctrl+A" = tui [
         "wiremix"
         "-v"
         "playback"
       ];
-      "Mod+Ctrl+T" = tui "btop" [ "btop" ];
+      "Mod+Ctrl+T" = tui [ "btop" ];
       "Mod+Ctrl+Y".spawn-sh = "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy";
     };
   };

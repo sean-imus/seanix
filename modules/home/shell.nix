@@ -28,28 +28,28 @@
         cmd_duration = {
           min_time = 2000;
           format = "[($duration)]($style) ";
-          style = "bold ${theme.hex theme.yellow}";
+          style = "bold ${theme.hex.yellow}";
         };
 
         directory = {
           format = "([$path]($style) )";
-          style = "bold ${theme.hex theme.aqua}";
+          style = "bold ${theme.hex.aqua}";
           truncate_to_repo = false;
         };
 
         git_branch = {
           format = "[$branch ]($style)";
-          style = "bold ${theme.hex theme.purple}";
+          style = "bold ${theme.hex.purple}";
         };
 
         git_status = {
           format = "([$all_status$ahead_behind]($style) )";
-          style = "bold ${theme.hex theme.red}";
+          style = "bold ${theme.hex.red}";
         };
 
         character = {
-          success_symbol = "[❯](bold ${theme.hex theme.green})";
-          error_symbol = "[❯](bold ${theme.hex theme.red})";
+          success_symbol = "[❯](bold ${theme.hex.green})";
+          error_symbol = "[❯](bold ${theme.hex.red})";
         };
       };
     };
@@ -57,19 +57,19 @@
     fzf = {
       enable = true;
       colors = {
-        bg = theme.hex theme.bg0;
-        "bg+" = theme.hex theme.bg1;
-        border = theme.hex theme.grey0;
-        fg = theme.hex theme.fg;
-        "fg+" = theme.hex theme.fg;
-        header = theme.hex theme.aqua;
-        hl = theme.hex theme.green;
-        "hl+" = theme.hex theme.green;
-        info = theme.hex theme.yellow;
-        marker = theme.hex theme.red;
-        pointer = theme.hex theme.purple;
-        prompt = theme.hex theme.red;
-        spinner = theme.hex theme.green;
+        bg = theme.hex.bg0;
+        "bg+" = theme.hex.bg1;
+        border = theme.hex.grey0;
+        fg = theme.hex.fg;
+        "fg+" = theme.hex.fg;
+        header = theme.hex.aqua;
+        hl = theme.hex.green;
+        "hl+" = theme.hex.green;
+        info = theme.hex.yellow;
+        marker = theme.hex.red;
+        pointer = theme.hex.purple;
+        prompt = theme.hex.red;
+        spinner = theme.hex.green;
       };
       defaultOptions = [
         "--height=40%"

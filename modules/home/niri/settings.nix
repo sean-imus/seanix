@@ -7,24 +7,26 @@ let
     0.66667
     0.75
   ];
+
+  spawnAtStartup = command: { spawn-at-startup._args = command; };
 in
 {
   wayland.windowManager.niri.settings = {
     animations = {
-      "overview-open-close".spring._props = {
+      overview-open-close.spring._props = {
         damping-ratio = 0.85;
         stiffness = 700;
         epsilon = 0.0001;
       };
-      "window-close" = {
+      window-close = {
         duration-ms = 200;
         curve = "ease-out-quad";
       };
-      "window-open" = {
+      window-open = {
         duration-ms = 250;
         curve = "ease-out-expo";
       };
-      "workspace-switch".spring._props = {
+      workspace-switch.spring._props = {
         damping-ratio = 0.9;
         stiffness = 700;
         epsilon = 0.0001;
@@ -32,38 +34,32 @@ in
     };
 
     _children = [
-      {
-        "spawn-at-startup"._args = [
-          "wl-paste"
-          "--watch"
-          "cliphist"
-          "store"
-        ];
-      }
-      {
-        "spawn-at-startup"._args = [
-          "wl-paste"
-          "--type"
-          "image/png"
-          "--watch"
-          "cliphist"
-          "store"
-        ];
-      }
-      {
-        "spawn-at-startup"._args = [
-          "${pkgs.swaybg}/bin/swaybg"
-          "-i"
-          "${../../../assets/everforest.png}"
-          "-m"
-          "fill"
-        ];
-      }
+      (spawnAtStartup [
+        "wl-paste"
+        "--watch"
+        "cliphist"
+        "store"
+      ])
+      (spawnAtStartup [
+        "wl-paste"
+        "--type"
+        "image/png"
+        "--watch"
+        "cliphist"
+        "store"
+      ])
+      (spawnAtStartup [
+        "${pkgs.swaybg}/bin/swaybg"
+        "-i"
+        "${../../../assets/everforest.png}"
+        "-m"
+        "fill"
+      ])
       {
         window-rule._children = [
           {
-            "clip-to-geometry" = true;
-            "geometry-corner-radius" = 8;
+            clip-to-geometry = true;
+            geometry-corner-radius = 8;
             opacity = 0.95;
             background-effect.blur = true;
           }
@@ -75,7 +71,7 @@ in
             match._props = {
               app-id = "^(wiremix|bluetui|btop)$";
             };
-            "open-floating" = true;
+            open-floating = true;
           }
         ];
       }
@@ -85,30 +81,30 @@ in
       keyboard.numlock = true;
       touchpad = {
         tap = { };
-        "natural-scroll" = { };
+        natural-scroll = { };
         dwt = { };
-        "drag-lock" = { };
+        drag-lock = { };
       };
-      "warp-mouse-to-focus" = { };
-      "focus-follows-mouse"._props = {
-        "max-scroll-amount" = "0%";
+      warp-mouse-to-focus = { };
+      focus-follows-mouse._props = {
+        max-scroll-amount = "0%";
       };
     };
 
-    cursor."hide-when-typing" = true;
+    cursor.hide-when-typing = true;
 
     layout = {
       gaps = 6;
-      "background-color" = "#000000";
-      "center-focused-column" = "on-overflow";
-      "always-center-single-column" = { };
-      "empty-workspace-above-first" = { };
-      "preset-column-widths" = presets;
-      "preset-window-heights" = presets;
-      "focus-ring" = {
+      background-color = "#000000";
+      center-focused-column = "on-overflow";
+      always-center-single-column = { };
+      empty-workspace-above-first = { };
+      preset-column-widths = presets;
+      preset-window-heights = presets;
+      focus-ring = {
         width = 2;
-        "active-color" = theme.hex theme.green;
-        "inactive-color" = "#00000000";
+        active-color = theme.hex.green;
+        inactive-color = "#00000000";
       };
       shadow = {
         on = { };
@@ -122,12 +118,12 @@ in
       };
     };
 
-    hotkey-overlay."skip-at-startup" = { };
+    hotkey-overlay.skip-at-startup = { };
 
     prefer-no-csd = { };
 
     screenshot-path = "~/Screenshots/%Y-%m-%d %H-%M-%S.png";
 
-    clipboard."disable-primary" = { };
+    clipboard.disable-primary = { };
   };
 }

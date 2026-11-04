@@ -10,15 +10,15 @@
         icons-enabled = false;
       };
       colors = {
-        background = theme.rgba theme.bg0 "ff";
-        text = theme.rgba theme.fg "ff";
-        prompt = theme.rgba theme.grey0 "ff";
-        input = theme.rgba theme.fg "ff";
-        match = theme.rgba theme.green "ff";
-        selection = theme.rgba theme.green "44";
-        selection-text = theme.rgba theme.fg "ff";
-        selection-match = theme.rgba theme.green "ff";
-        border = theme.rgba theme.green "ff";
+        background = "${theme.bg0}ff";
+        text = "${theme.fg}ff";
+        prompt = "${theme.grey0}ff";
+        input = "${theme.fg}ff";
+        match = "${theme.green}ff";
+        selection = "${theme.green}44";
+        selection-text = "${theme.fg}ff";
+        selection-match = "${theme.green}ff";
+        border = "${theme.green}ff";
       };
       border = {
         width = 2;

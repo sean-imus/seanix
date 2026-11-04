@@ -7,7 +7,7 @@
 }:
 let
   flake = ''(builtins.getFlake "${config.programs.nh.flake}").nixosConfigurations.notebook'';
-  map = key: action: desc: {
+  mkKey = key: action: desc: {
     inherit key action;
     options = { inherit desc; };
   };
@@ -183,18 +183,20 @@ in
     colorschemes.everforest.enable = true;
 
     keymaps = [
-      (map "<leader>e" "<cmd>Neotree toggle<CR>" "Toggle file explorer")
-      (map "<leader>lg" "<cmd>LazyGit<CR>" "Open lazygit")
-      (map "<leader>h" "<cmd>nohlsearch<CR>" "Clear search highlights")
-      (map "<leader>q" "<cmd>q<CR>" "Close window")
-      (map "<leader>w" "<cmd>w<CR>" "Save file")
-      (map "s" "<cmd>lua require('flash').jump()<CR>" "Flash jump")
-      (map "K" "<cmd>lua vim.lsp.buf.hover()<CR>" "Show docs: option/value explanation (LSP hover)")
-      (map "gK" "<cmd>lua vim.lsp.buf.signature_help()<CR>" "Show function signature")
-      (map "<leader>d" "<cmd>lua vim.diagnostic.open_float()<CR>" "Show diagnostic details under cursor")
-      (map "<leader>r" "<cmd>RunFile<CR>" "Run current file (per filetype)")
-      (map "<leader>sr" "<cmd>GrugFar<CR>" "Search and replace (project)")
-      (map "<leader>tt" "<cmd>ToggleTerm<CR>" "Toggle terminal")
+      (mkKey "<leader>e" "<cmd>Neotree toggle<CR>" "Toggle file explorer")
+      (mkKey "<leader>lg" "<cmd>LazyGit<CR>" "Open lazygit")
+      (mkKey "<leader>h" "<cmd>nohlsearch<CR>" "Clear search highlights")
+      (mkKey "<leader>q" "<cmd>q<CR>" "Close window")
+      (mkKey "<leader>w" "<cmd>w<CR>" "Save file")
+      (mkKey "s" "<cmd>lua require('flash').jump()<CR>" "Flash jump")
+      (mkKey "K" "<cmd>lua vim.lsp.buf.hover()<CR>" "Show docs: option/value explanation (LSP hover)")
+      (mkKey "gK" "<cmd>lua vim.lsp.buf.signature_help()<CR>" "Show function signature")
+      (mkKey "<leader>d" "<cmd>lua vim.diagnostic.open_float()<CR>"
+        "Show diagnostic details under cursor"
+      )
+      (mkKey "<leader>r" "<cmd>RunFile<CR>" "Run current file (per filetype)")
+      (mkKey "<leader>sr" "<cmd>GrugFar<CR>" "Search and replace (project)")
+      (mkKey "<leader>tt" "<cmd>ToggleTerm<CR>" "Toggle terminal")
     ];
 
     userCommands.RunFile = {

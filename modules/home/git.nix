@@ -15,16 +15,16 @@
       enable = true;
       settings.gui.theme = {
         activeBorderColor = [
-          (theme.hex theme.green)
+          theme.hex.green
           "bold"
         ];
-        inactiveBorderColor = [ (theme.hex theme.grey0) ];
-        optionsTextColor = [ (theme.hex theme.grey2) ];
-        selectedLineBgColor = [ (theme.hex theme.bg1) ];
-        unstagedChangesColor = [ (theme.hex theme.red) ];
-        defaultFgColor = [ (theme.hex theme.fg) ];
+        inactiveBorderColor = [ theme.hex.grey0 ];
+        optionsTextColor = [ theme.hex.grey2 ];
+        selectedLineBgColor = [ theme.hex.bg1 ];
+        unstagedChangesColor = [ theme.hex.red ];
+        defaultFgColor = [ theme.hex.fg ];
         searchingActiveBorderColor = [
-          (theme.hex theme.yellow)
+          theme.hex.yellow
           "bold"
         ];
       };
