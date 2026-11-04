@@ -13,6 +13,7 @@
   programs.fish = {
     enable = true;
     generateCompletions = false;
+    useBabelfish = true;
   };
 
   home-manager.users.sean = {
