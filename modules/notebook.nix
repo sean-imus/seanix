@@ -81,24 +81,13 @@
     nano.enable = false;
   };
 
-  environment = {
-    variables = {
-      LIBVA_DRIVER_NAME = "iHD";
-      XKB_DEFAULT_LAYOUT = "de";
-      XKB_DEFAULT_OPTIONS = "caps:escape";
-      XKB_DEFAULT_VARIANT = "";
-    };
-
-    systemPackages = [
-      pkgs.ntfs3g
-      pkgs.e2fsprogs
-    ];
-    defaultPackages = [ ];
-  };
+  environment.defaultPackages = [ ];
 
   security.rtkit.enable = true;
 
   boot = {
+    supportedFilesystems = [ "ntfs" ];
+
     initrd.availableKernelModules = [
       "nvme"
       "thunderbolt"
