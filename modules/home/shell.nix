@@ -83,11 +83,6 @@
       options = [ "--cmd=cd" ];
     };
 
-    nh = {
-      enable = true;
-      flake = "/home/sean/nixos-config";
-    };
-
     eza = {
       enable = true;
       git = true;

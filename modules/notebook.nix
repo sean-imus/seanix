@@ -72,10 +72,14 @@
   };
 
   programs = {
-    nh.clean = {
+    nh = {
       enable = true;
-      dates = "weekly";
-      extraArgs = "--keep 5 --optimise";
+      flake = "/home/sean/nixos-config";
+      clean = {
+        enable = true;
+        dates = "weekly";
+        extraArgs = "--keep 5 --optimise";
+      };
     };
     solaar.enable = true;
     nano.enable = false;

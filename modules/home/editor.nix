@@ -1,12 +1,13 @@
 {
   config,
   inputs,
+  osConfig,
   pkgs,
   shadowDesktopEntries,
   ...
 }:
 let
-  flake = ''(builtins.getFlake "${config.programs.nh.flake}").nixosConfigurations.notebook'';
+  flake = ''(builtins.getFlake "${osConfig.programs.nh.flake}").nixosConfigurations.notebook'';
   mkKey = key: action: desc: {
     inherit key action;
     options = { inherit desc; };
