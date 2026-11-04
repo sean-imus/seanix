@@ -46,7 +46,6 @@ in
       tabstop = 2;
       shiftwidth = 2;
       clipboard = "unnamedplus";
-      foldlevelstart = 99;
       updatetime = 250;
     };
 
@@ -71,6 +70,7 @@ in
       nvim-autopairs.enable = true;
       treesitter = {
         enable = true;
+        highlight.enable = true;
         grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
           nix
           bash
@@ -136,9 +136,18 @@ in
 
       indent-blankline.enable = true;
       flash.enable = true;
-      fidget.enable = true;
       grug-far.enable = true;
-      mini-surround.enable = true;
+      mini-surround = {
+        enable = true;
+        settings.mappings = {
+          add = "gsa";
+          delete = "gsd";
+          find = "gsf";
+          find_left = "gsF";
+          highlight = "gsh";
+          replace = "gsr";
+        };
+      };
       render-markdown.enable = true;
 
       conform-nvim = {
@@ -189,7 +198,6 @@ in
       (mkKey "<leader>q" "<cmd>q<CR>" "Close window")
       (mkKey "<leader>w" "<cmd>w<CR>" "Save file")
       (mkKey "s" "<cmd>lua require('flash').jump()<CR>" "Flash jump")
-      (mkKey "K" "<cmd>lua vim.lsp.buf.hover()<CR>" "Show docs: option/value explanation (LSP hover)")
       (mkKey "gK" "<cmd>lua vim.lsp.buf.signature_help()<CR>" "Show function signature")
       (mkKey "<leader>d" "<cmd>lua vim.diagnostic.open_float()<CR>"
         "Show diagnostic details under cursor"
