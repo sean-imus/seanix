@@ -1,6 +1,6 @@
 set -eu
 [ "$(id -u)" -eq 0 ] || exec sudo sh "$0"
 
-rm -rf /tmp/nixos-config
-git clone https://github.com/sean-imus/nixos-config /tmp/nixos-config
-exec sh /tmp/nixos-config/assets/install.sh "$(dirname "$(readlink -f "$0")")"
+rm -rf /tmp/seanix
+git clone https://github.com/sean-imus/seanix /tmp/seanix
+exec sh /tmp/seanix/assets/install.sh "$(dirname "$(readlink -f "$0")")"

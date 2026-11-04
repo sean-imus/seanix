@@ -37,7 +37,7 @@ step "Installing NixOS"
 nixos-install --no-channel-copy --no-root-password --flake "$repo#notebook"
 
 step "Moving the config into the home directory"
-mv "$repo" /mnt/home/sean/
+mv "$repo" /mnt/home/sean/seanix
 chown -R 1000:100 /mnt/home/sean
 
 banner "Installation finished"

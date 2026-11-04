@@ -74,7 +74,7 @@
   programs = {
     nh = {
       enable = true;
-      flake = "/home/sean/nixos-config";
+      flake = "/home/sean/seanix";
       clean = {
         enable = true;
         dates = "weekly";
