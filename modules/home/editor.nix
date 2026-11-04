@@ -221,5 +221,5 @@ in
       '';
     };
   };
-  xdg.dataFile = shadowDesktopEntries [ config.programs.nixvim.build.packageUnchecked ] [ "nvim" ];
+  xdg.dataFile = shadowDesktopEntries config.programs.nixvim.build.packageUnchecked [ "nvim" ];
 }

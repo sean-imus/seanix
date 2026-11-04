@@ -105,6 +105,6 @@ in
       "x-scheme-handler/http"
       "x-scheme-handler/https"
     ] (_: "chromium-privat.desktop");
-    dataFile = shadowDesktopEntries [ pkgs.chromium ] [ "chromium-browser" ];
+    dataFile = shadowDesktopEntries pkgs.chromium [ "chromium-browser" ];
   };
 }

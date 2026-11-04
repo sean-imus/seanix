@@ -38,12 +38,9 @@ in
     };
   };
 
-  xdg.dataFile =
-    shadowDesktopEntries
-      [ pkgs.foot ]
-      [
-        "foot"
-        "footclient"
-        "foot-server"
-      ];
+  xdg.dataFile = shadowDesktopEntries pkgs.foot [
+    "foot"
+    "footclient"
+    "foot-server"
+  ];
 }

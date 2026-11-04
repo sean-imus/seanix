@@ -124,5 +124,5 @@
     ];
   };
 
-  xdg.dataFile = shadowDesktopEntries [ pkgs.btop ] [ "btop" ];
+  xdg.dataFile = shadowDesktopEntries pkgs.btop [ "btop" ];
 }

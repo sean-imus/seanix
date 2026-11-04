@@ -10,7 +10,7 @@
     (
       { shadowDesktopEntries, ... }:
       {
-        xdg.dataFile = shadowDesktopEntries [ pkgs.cups ] [ "cups" ];
+        xdg.dataFile = shadowDesktopEntries pkgs.cups [ "cups" ];
       }
     )
   ];

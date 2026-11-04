@@ -20,17 +20,15 @@
 
   xdg = {
     dataFile =
-      shadowDesktopEntries
-        [ pkgs.libreoffice-stable ]
-        [
-          "base"
-          "draw"
-          "impress"
-          "math"
-          "startcenter"
-          "xsltfilter"
-        ]
-      // shadowDesktopEntries [ pkgs.mpv ] [ "mpv" ];
+      shadowDesktopEntries pkgs.libreoffice-stable [
+        "base"
+        "draw"
+        "impress"
+        "math"
+        "startcenter"
+        "xsltfilter"
+      ]
+      // shadowDesktopEntries pkgs.mpv [ "mpv" ];
 
     mimeApps.defaultApplications = {
       "text/markdown" = "writer.desktop";
