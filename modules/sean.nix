@@ -10,10 +10,21 @@
     shell = pkgs.fish;
   };
 
+  # Users and passwords come only from this config
+  users.mutableUsers = false;
+
   programs.fish = {
     enable = true;
     generateCompletions = false;
     useBabelfish = true;
+  };
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "bak";
+    overwriteBackup = true;
+    extraSpecialArgs = { inherit inputs; };
   };
 
   home-manager.users.sean = {
