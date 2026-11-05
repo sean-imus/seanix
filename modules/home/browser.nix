@@ -1,11 +1,42 @@
 {
   lib,
   pkgs,
-  theme,
   shadowDesktopEntries,
   ...
 }:
 let
+  # Everforest Dark as [ R G B ], the format Chromium themes expect
+  bg0 = [
+    45
+    53
+    59
+  ];
+  bg1 = [
+    52
+    63
+    68
+  ];
+  bg2 = [
+    61
+    72
+    77
+  ];
+  grey1 = [
+    133
+    146
+    137
+  ];
+  fg = [
+    211
+    198
+    170
+  ];
+  green = [
+    167
+    192
+    128
+  ];
+
   profiles = {
     work-admin = "Work-Admin";
     work-normal = "Work-Normal";
@@ -29,19 +60,19 @@ let
       name = "Everforest";
       version = "1.0";
       theme.colors = {
-        frame = theme.rgb.bg0;
-        frame_inactive = theme.rgb.bg1;
-        toolbar = theme.rgb.bg1;
-        toolbar_text = theme.rgb.fg;
-        toolbar_button_icon = theme.rgb.fg;
-        tab_text = theme.rgb.fg;
-        tab_background_text = theme.rgb.grey1;
-        bookmark_text = theme.rgb.fg;
-        omnibox_background = theme.rgb.bg2;
-        omnibox_text = theme.rgb.fg;
-        ntp_background = theme.rgb.bg0;
-        ntp_text = theme.rgb.fg;
-        ntp_link = theme.rgb.green;
+        frame = bg0;
+        frame_inactive = bg1;
+        toolbar = bg1;
+        toolbar_text = fg;
+        toolbar_button_icon = fg;
+        tab_text = fg;
+        tab_background_text = grey1;
+        bookmark_text = fg;
+        omnibox_background = bg2;
+        omnibox_text = fg;
+        ntp_background = bg0;
+        ntp_text = fg;
+        ntp_link = green;
       };
     }
   );

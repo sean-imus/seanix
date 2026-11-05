@@ -29,7 +29,7 @@
       ./home/niri
       ./home/shell.nix
       ./home/terminal.nix
-      ./home/theme.nix
+      ./home/appearance.nix
     ];
 
     programs.nix-index.enableFishIntegration = false;

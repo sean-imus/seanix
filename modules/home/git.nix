@@ -1,4 +1,13 @@
-{ theme, ... }:
+let
+  # Everforest Dark
+  bg1 = "#343f44";
+  grey0 = "#7a8478";
+  grey2 = "#9da9a0";
+  fg = "#d3c6aa";
+  red = "#e67e80";
+  yellow = "#dbbc7f";
+  green = "#a7c080";
+in
 {
   programs = {
     git = {
@@ -15,16 +24,16 @@
       enable = true;
       settings.gui.theme = {
         activeBorderColor = [
-          theme.hex.green
+          green
           "bold"
         ];
-        inactiveBorderColor = [ theme.hex.grey0 ];
-        optionsTextColor = [ theme.hex.grey2 ];
-        selectedLineBgColor = [ theme.hex.bg1 ];
-        unstagedChangesColor = [ theme.hex.red ];
-        defaultFgColor = [ theme.hex.fg ];
+        inactiveBorderColor = [ grey0 ];
+        optionsTextColor = [ grey2 ];
+        selectedLineBgColor = [ bg1 ];
+        unstagedChangesColor = [ red ];
+        defaultFgColor = [ fg ];
         searchingActiveBorderColor = [
-          theme.hex.yellow
+          yellow
           "bold"
         ];
       };

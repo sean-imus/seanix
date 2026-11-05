@@ -1,4 +1,10 @@
-{ theme, ... }:
+let
+  # Everforest Dark without '#'; fuzzel wants RRGGBBAA, so alpha is appended below
+  bg0 = "2d353b";
+  grey0 = "7a8478";
+  fg = "d3c6aa";
+  green = "a7c080";
+in
 {
   programs.fuzzel = {
     enable = true;
@@ -10,15 +16,15 @@
         icons-enabled = false;
       };
       colors = {
-        background = "${theme.bg0}ff";
-        text = "${theme.fg}ff";
-        prompt = "${theme.grey0}ff";
-        input = "${theme.fg}ff";
-        match = "${theme.green}ff";
-        selection = "${theme.green}44";
-        selection-text = "${theme.fg}ff";
-        selection-match = "${theme.green}ff";
-        border = "${theme.green}ff";
+        background = "${bg0}ff";
+        text = "${fg}ff";
+        prompt = "${grey0}ff";
+        input = "${fg}ff";
+        match = "${green}ff";
+        selection = "${green}44";
+        selection-text = "${fg}ff";
+        selection-match = "${green}ff";
+        border = "${green}ff";
       };
       border = {
         width = 2;
