@@ -8,8 +8,11 @@ repo=$(dirname "$(dirname "$(readlink -f "$0")")")
 total=$(grep -c '^step ' "$0")
 n=0
 password=$usb/Privat/password.txt
+agekey=$usb/Privat/age-key.txt
 
-[ -f "$password" ] || { echo "Missing $password" >&2; exit 1; }
+for f in "$password" "$agekey"; do
+  [ -f "$f" ] || { echo "Missing $f" >&2; exit 1; }
+done
 
 banner() {
   printf '\033[H\033[2J\033[3J\n  \033[1m%s\033[0m\n\n' "$1"
@@ -32,6 +35,9 @@ mkswap "/mnt${swap% *}"
 
 step "Placing the password hash"
 install -Dm600 "$password" /mnt/home/sean/.secrets/password.txt
+
+step "Placing the sops age key"
+install -Dm600 "$agekey" /mnt/home/sean/.config/sops/age/keys.txt
 
 step "Installing NixOS"
 nixos-install --no-channel-copy --no-root-password --flake "$repo#notebook"

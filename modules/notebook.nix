@@ -12,7 +12,9 @@
     ./nixos/niri.nix
     ./nixos/printing.nix
     ./nixos/rdp-work.nix
+    ./nixos/secrets.nix
     ./nixos/virtualisation.nix
+    ./nixos/wifi.nix
     ./sean.nix
   ];
 

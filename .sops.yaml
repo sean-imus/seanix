@@ -1,0 +1,7 @@
+keys:
+  - &sean age1373yld5lnjp90v4am5al0a8v42zvyh69l8jhxa8yxwtukh85ddyqu8p4g8
+creation_rules:
+  - path_regex: secrets/.*
+    key_groups:
+      - age:
+          - *sean
