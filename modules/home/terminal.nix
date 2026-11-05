@@ -1,3 +1,4 @@
+# foot terminal, opened with Mod+T (niri/keybindings.nix).
 {
   lib,
   pkgs,

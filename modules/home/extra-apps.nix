@@ -1,3 +1,4 @@
+# Office and media: LibreOffice (opens text and Markdown files) and mpv.
 {
   lib,
   pkgs,
@@ -10,8 +11,6 @@ in
   home.packages = [
     pkgs.libreoffice-stable
   ];
-
-  services.playerctld.enable = true;
 
   programs.mpv = {
     enable = true;

@@ -1,16 +1,21 @@
-{
-  pkgs,
-  inputs,
-  ...
-}:
+# The notebook host: hardware, boot, and the list of everything it runs.
+# Each feature lives in its own module under nixos/; the user is in sean.nix.
+{ pkgs, ... }:
 {
   imports = [
+    ./nixos/audio.nix
+    ./nixos/bluetooth.nix
     ./nixos/claude-code.nix
     ./nixos/claude-sudo.nix
+    ./nixos/clipboard.nix
     ./nixos/disk.nix
+    ./nixos/fonts.nix
     ./nixos/hardware-dev.nix
+    ./nixos/locale.nix
     ./nixos/lockscreen.nix
     ./nixos/niri.nix
+    ./nixos/nix.nix
+    ./nixos/power.nix
     ./nixos/printing.nix
     ./nixos/rdp-work.nix
     ./nixos/secrets.nix
@@ -25,74 +30,31 @@
     modemmanager.enable = false;
   };
 
-  services = {
-    power-profiles-daemon.enable = true;
-    thermald.enable = true;
-
-    logind.settings.Login = {
-      HandleLidSwitch = "suspend-then-hibernate";
-      HandleLidSwitchExternalPower = "lock";
-      HandleLidSwitchDocked = "ignore";
-    };
-
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
-
-    upower = {
-      enable = true;
-      usePercentageForPolicy = true;
-      percentageLow = 20;
-      percentageCritical = 10;
-      percentageAction = 5;
-      criticalPowerAction = "Hibernate";
-    };
-
-    fwupd.enable = true;
-
-    speechd.enable = false;
-
-    getty = {
-      autologinUser = "sean";
-      autologinOnce = true;
-    };
-
-    xserver.xkb = {
-      layout = "de";
-      options = "caps:escape";
-    };
-  };
-
   hardware = {
     enableRedistributableFirmware = true;
     cpu.intel.updateMicrocode = true;
 
     graphics.extraPackages = [ pkgs.intel-media-driver ];
+  };
 
-    bluetooth.enable = true;
+  services = {
+    fwupd.enable = true;
+    speechd.enable = false;
   };
 
   programs = {
-    nh = {
-      enable = true;
-      flake = "/home/sean/seanix";
-      clean = {
-        enable = true;
-        dates = "weekly";
-        extraArgs = "--keep 5 --optimise";
-      };
-    };
+    # Logitech receivers and devices
     solaar.enable = true;
     nano.enable = false;
   };
 
   environment.defaultPackages = [ ];
 
-  security.rtkit.enable = true;
-
-  systemd.sleep.settings.Sleep.HibernateDelaySec = "2h";
+  documentation = {
+    doc.enable = false;
+    info.enable = false;
+    nixos.enable = false;
+  };
 
   boot = {
     supportedFilesystems = [ "ntfs" ];
@@ -117,65 +79,14 @@
       timeout = 0;
     };
 
+    # Tuned for compressed swap in RAM: swap eagerly, read one page at a time
     kernel.sysctl = {
       "vm.page-cluster" = 0;
       "vm.swappiness" = 180;
     };
   };
 
-  time.timeZone = "Europe/Berlin";
-
-  i18n = {
-    defaultLocale = "en_US.UTF-8";
-    extraLocaleSettings = {
-      LC_ADDRESS = "de_DE.UTF-8";
-      LC_IDENTIFICATION = "de_DE.UTF-8";
-      LC_MEASUREMENT = "de_DE.UTF-8";
-      LC_MONETARY = "de_DE.UTF-8";
-      LC_NAME = "de_DE.UTF-8";
-      LC_NUMERIC = "de_DE.UTF-8";
-      LC_PAPER = "de_DE.UTF-8";
-      LC_TELEPHONE = "de_DE.UTF-8";
-      LC_TIME = "de_DE.UTF-8";
-    };
-  };
-
-  console.keyMap = "de-latin1";
-
-  documentation = {
-    doc.enable = false;
-    info.enable = false;
-    nixos.enable = false;
-  };
-
-  home-manager = {
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    backupFileExtension = "bak";
-    overwriteBackup = true;
-    extraSpecialArgs = { inherit inputs; };
-  };
-
-  nix = {
-    channel.enable = false;
-    settings = {
-      download-buffer-size = 134217728;
-      warn-dirty = false;
-      experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
-    };
-  };
-
-  users.mutableUsers = false;
-
   zramSwap.enable = true;
-
-  fonts.packages = [
-    pkgs.nerd-fonts.jetbrains-mono
-    pkgs.noto-fonts-color-emoji
-  ];
 
   system.stateVersion = "26.11";
 }

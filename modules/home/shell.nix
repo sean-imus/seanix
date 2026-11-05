@@ -1,3 +1,5 @@
+# fish shell and its tools: starship prompt, fzf, zoxide (replaces cd), eza,
+# carapace completions, btop, fastfetch and tldr.
 {
   lib,
   pkgs,
@@ -25,11 +27,6 @@ in
       enable = true;
       generateCompletions = false;
       functions.fish_greeting = "";
-      interactiveShellInit = ''
-        if test -z "$DISPLAY"; and test -z "$WAYLAND_DISPLAY"; and test (tty) = "/dev/tty1"
-          exec niri-session
-        end
-      '';
     };
 
     starship = {

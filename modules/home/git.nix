@@ -1,3 +1,4 @@
+# Git identity, the GitHub CLI and lazygit.
 let
   # Everforest Dark
   bg1 = "#343f44";

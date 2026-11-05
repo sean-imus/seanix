@@ -1,3 +1,4 @@
+# Printing (CUPS) and scanning (SANE with Simple Scan).
 { lib, pkgs, ... }:
 let
   hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };

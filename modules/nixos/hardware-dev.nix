@@ -1,3 +1,5 @@
+# Hardware tinkering: user access to USB-serial adapters (ESP32, Arduino) and
+# Android devices without root, plus the matching tools.
 { pkgs, lib, ... }:
 let
   serialRule =

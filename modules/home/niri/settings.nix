@@ -1,3 +1,4 @@
+# niri behaviour: animations, layout, input devices, window rules, wallpaper.
 { pkgs, ... }:
 let
   # Everforest Dark
@@ -38,20 +39,6 @@ in
 
     _children = [
       (spawnAtStartup [
-        "wl-paste"
-        "--watch"
-        "cliphist"
-        "store"
-      ])
-      (spawnAtStartup [
-        "wl-paste"
-        "--type"
-        "image/png"
-        "--watch"
-        "cliphist"
-        "store"
-      ])
-      (spawnAtStartup [
         "${pkgs.swaybg}/bin/swaybg"
         "-i"
         "${../../../assets/everforest.png}"
@@ -72,7 +59,7 @@ in
         window-rule._children = [
           {
             match._props = {
-              app-id = "^(wiremix|bluetui|btop)$";
+              app-id = "^btop$";
             };
             open-floating = true;
           }

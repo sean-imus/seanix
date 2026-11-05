@@ -1,3 +1,5 @@
+# Remote desktop to the work laptop over a direct ethernet cable:
+# a static IP profile and a "Connect to Work Laptop" launcher.
 { pkgs, ... }:
 {
   networking.networkmanager.ensureProfiles.profiles = {

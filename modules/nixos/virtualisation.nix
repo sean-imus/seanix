@@ -1,3 +1,4 @@
+# Virtual machines: libvirt with QEMU/KVM, TPM emulation and virt-manager.
 { pkgs, ... }:
 {
   virtualisation = {

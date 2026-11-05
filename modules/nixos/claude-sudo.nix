@@ -1,3 +1,5 @@
+# claude-sudo: lets Claude Code get passwordless sudo for a limited time,
+# after the user confirms a polkit password dialog.
 { config, pkgs, ... }:
 let
   user = "sean";

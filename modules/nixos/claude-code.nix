@@ -1,3 +1,5 @@
+# Claude Code with the NixOS MCP server, nixd LSP, a usage status line and a
+# hook that formats and lints every .nix file Claude edits.
 { lib, pkgs, ... }:
 let
   script = name: runtimeInputs: text: {
