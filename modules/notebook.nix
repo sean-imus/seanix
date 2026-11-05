@@ -5,6 +5,8 @@
 }:
 {
   imports = [
+    ./nixos/audio.nix
+    ./nixos/bluetooth.nix
     ./nixos/claude-code.nix
     ./nixos/claude-sudo.nix
     ./nixos/clipboard.nix
@@ -36,12 +38,6 @@
       HandleLidSwitchDocked = "ignore";
     };
 
-    pipewire = {
-      enable = true;
-      pulse.enable = true;
-      alsa.enable = true;
-    };
-
     upower = {
       enable = true;
       usePercentageForPolicy = true;
@@ -71,8 +67,6 @@
     cpu.intel.updateMicrocode = true;
 
     graphics.extraPackages = [ pkgs.intel-media-driver ];
-
-    bluetooth.enable = true;
   };
 
   programs = {
@@ -90,8 +84,6 @@
   };
 
   environment.defaultPackages = [ ];
-
-  security.rtkit.enable = true;
 
   systemd.sleep.settings.Sleep.HibernateDelaySec = "2h";
 

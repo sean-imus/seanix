@@ -11,8 +11,6 @@ in
     pkgs.libreoffice-stable
   ];
 
-  services.playerctld.enable = true;
-
   programs.mpv = {
     enable = true;
     config = {

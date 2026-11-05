@@ -58,7 +58,7 @@ in
         window-rule._children = [
           {
             match._props = {
-              app-id = "^(wiremix|bluetui|btop)$";
+              app-id = "^btop$";
             };
             open-floating = true;
           }

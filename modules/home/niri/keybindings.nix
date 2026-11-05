@@ -2,15 +2,6 @@
 let
   locked = bind: { _props.allow-when-locked = true; } // bind;
 
-  tui = command: {
-    spawn = [
-      "foot"
-      "--app-id"
-      (builtins.head command)
-    ]
-    ++ command;
-  };
-
   workspaceBinds = lib.mergeAttrsList (
     map (n: {
       "Mod+${toString n}".focus-workspace = n;
@@ -26,16 +17,6 @@ in
     };
 
     binds = workspaceBinds // {
-      "XF86AudioRaiseVolume" = locked {
-        spawn-sh = "swayosd-client --output-volume +10 --max-volume 100";
-      };
-      "XF86AudioLowerVolume" = locked { spawn-sh = "swayosd-client --output-volume -10"; };
-      "XF86AudioMute" = locked { spawn-sh = "swayosd-client --output-volume mute-toggle"; };
-      "XF86AudioMicMute" = locked { spawn-sh = "swayosd-client --input-volume mute-toggle"; };
-      "XF86AudioPlay" = locked { spawn-sh = "playerctl play-pause"; };
-      "XF86AudioStop" = locked { spawn-sh = "playerctl stop"; };
-      "XF86AudioPrev" = locked { spawn-sh = "playerctl previous"; };
-      "XF86AudioNext" = locked { spawn-sh = "playerctl next"; };
       "XF86MonBrightnessUp" = locked { spawn-sh = "swayosd-client --brightness +10"; };
       "XF86MonBrightnessDown" = locked { spawn-sh = "swayosd-client --brightness -10"; };
 
@@ -107,13 +88,12 @@ in
       "Mod+Space".spawn = "fuzzel";
       "Mod+T".spawn = "foot";
       "Mod+B".spawn = "chromium-privat";
-      "Mod+Ctrl+B" = tui [ "bluetui" ];
-      "Mod+Ctrl+A" = tui [
-        "wiremix"
-        "-v"
-        "playback"
+      "Mod+Ctrl+T".spawn = [
+        "foot"
+        "--app-id"
+        "btop"
+        "btop"
       ];
-      "Mod+Ctrl+T" = tui [ "btop" ];
     };
   };
 }
