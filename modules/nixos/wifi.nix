@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  profile = n: {
+  open = n: {
     connection = {
       id = "$WIFI_${n}_SSID";
       type = "wifi";
@@ -15,7 +15,7 @@ let
 
   secured =
     n:
-    profile n
+    open n
     // {
       wifi-security = {
         key-mgmt = "wpa-psk";
@@ -30,7 +30,7 @@ in
     profiles = {
       wifi-1 = secured "1";
       wifi-2 = secured "2";
-      wifi-3 = profile "3";
+      wifi-3 = open "3";
     };
   };
 }
