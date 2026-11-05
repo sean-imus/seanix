@@ -30,5 +30,17 @@
         focus-at-startup = { };
       };
     }
+    {
+      output = {
+        _args = [ "GIGA-BYTE TECHNOLOGY CO., LTD. M27U 23463B001145" ];
+        mode._args = [ "3840x2160@60.000" ];
+        scale._args = [ 1.5 ];
+        # Centered above eDP-1 (logical 2560x1440 over 1920x1080).
+        position._props = {
+          x = -320;
+          y = -1440;
+        };
+      };
+    }
   ];
 }
