@@ -1,8 +1,11 @@
 {
+  lib,
   pkgs,
-  shadowDesktopEntries,
   ...
 }:
+let
+  hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };
+in
 {
   home.packages = [
     pkgs.libreoffice-stable
@@ -20,7 +23,7 @@
 
   xdg = {
     dataFile =
-      shadowDesktopEntries pkgs.libreoffice-stable [
+      hideDesktopEntries pkgs.libreoffice-stable [
         "base"
         "draw"
         "impress"
@@ -28,12 +31,15 @@
         "startcenter"
         "xsltfilter"
       ]
-      // shadowDesktopEntries pkgs.mpv [ "mpv" ];
+      // hideDesktopEntries pkgs.mpv [ "mpv" ];
 
-    mimeApps.defaultApplications = {
-      "text/markdown" = "writer.desktop";
-      "text/plain" = "writer.desktop";
-      "text/x-markdown" = "writer.desktop";
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "text/markdown" = "writer.desktop";
+        "text/plain" = "writer.desktop";
+        "text/x-markdown" = "writer.desktop";
+      };
     };
   };
 }

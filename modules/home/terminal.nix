@@ -1,9 +1,11 @@
 {
+  lib,
   pkgs,
-  shadowDesktopEntries,
   ...
 }:
 let
+  hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };
+
   # Everforest Dark without '#', the format foot expects
   bg0 = "2d353b";
   bg4 = "4f585e";
@@ -51,7 +53,7 @@ in
     };
   };
 
-  xdg.dataFile = shadowDesktopEntries pkgs.foot [
+  xdg.dataFile = hideDesktopEntries pkgs.foot [
     "foot"
     "footclient"
     "foot-server"

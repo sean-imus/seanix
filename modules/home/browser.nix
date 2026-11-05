@@ -1,10 +1,11 @@
 {
   lib,
   pkgs,
-  shadowDesktopEntries,
   ...
 }:
 let
+  hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };
+
   # Everforest Dark as [ R G B ], the format Chromium themes expect
   bg0 = [
     45
@@ -122,20 +123,23 @@ in
         ];
       }
     ) profiles;
-    mimeApps.defaultApplications = lib.genAttrs [
-      "application/json"
-      "application/pdf"
-      "image/avif"
-      "image/bmp"
-      "image/gif"
-      "image/jpeg"
-      "image/png"
-      "image/svg+xml"
-      "image/webp"
-      "text/html"
-      "x-scheme-handler/http"
-      "x-scheme-handler/https"
-    ] (_: "chromium-privat.desktop");
-    dataFile = shadowDesktopEntries pkgs.chromium [ "chromium-browser" ];
+    mimeApps = {
+      enable = true;
+      defaultApplications = lib.genAttrs [
+        "application/json"
+        "application/pdf"
+        "image/avif"
+        "image/bmp"
+        "image/gif"
+        "image/jpeg"
+        "image/png"
+        "image/svg+xml"
+        "image/webp"
+        "text/html"
+        "x-scheme-handler/http"
+        "x-scheme-handler/https"
+      ] (_: "chromium-privat.desktop");
+    };
+    dataFile = hideDesktopEntries pkgs.chromium [ "chromium-browser" ];
   };
 }

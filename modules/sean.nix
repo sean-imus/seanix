@@ -21,7 +21,6 @@
       inputs.nix-index-database.homeModules.default
       ./home/browser.nix
       ./home/desktop-shell.nix
-      ./home/desktop-entries.nix
       ./home/editor.nix
       ./home/extra-apps.nix
       ./home/git.nix

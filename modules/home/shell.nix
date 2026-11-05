@@ -1,9 +1,11 @@
 {
+  lib,
   pkgs,
-  shadowDesktopEntries,
   ...
 }:
 let
+  hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };
+
   # Everforest Dark
   bg0 = "#2d353b";
   bg1 = "#343f44";
@@ -130,5 +132,5 @@ in
     ];
   };
 
-  xdg.dataFile = shadowDesktopEntries pkgs.btop [ "btop" ];
+  xdg.dataFile = hideDesktopEntries pkgs.btop [ "btop" ];
 }
