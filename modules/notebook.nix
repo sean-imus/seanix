@@ -51,11 +51,6 @@
 
     speechd.enable = false;
 
-    getty = {
-      autologinUser = "sean";
-      autologinOnce = true;
-    };
-
     xserver.xkb = {
       layout = "de";
       options = "caps:escape";
