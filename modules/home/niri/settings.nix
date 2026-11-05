@@ -1,5 +1,8 @@
-{ pkgs, theme, ... }:
+{ pkgs, ... }:
 let
+  # Everforest Dark
+  green = "#a7c080";
+
   presets._children = map (proportion: { inherit proportion; }) [
     0.25
     0.33333
@@ -102,7 +105,7 @@ in
       preset-window-heights = presets;
       focus-ring = {
         width = 2;
-        active-color = theme.hex.green;
+        active-color = green;
         inactive-color = "#00000000";
       };
       shadow = {

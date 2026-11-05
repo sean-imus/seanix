@@ -1,9 +1,22 @@
 {
+  lib,
   pkgs,
-  theme,
-  shadowDesktopEntries,
   ...
 }:
+let
+  hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };
+
+  # Everforest Dark
+  bg0 = "#2d353b";
+  bg1 = "#343f44";
+  grey0 = "#7a8478";
+  fg = "#d3c6aa";
+  red = "#e67e80";
+  yellow = "#dbbc7f";
+  green = "#a7c080";
+  aqua = "#83c092";
+  purple = "#d699b6";
+in
 {
   manual.manpages.enable = false;
 
@@ -28,28 +41,28 @@
         cmd_duration = {
           min_time = 2000;
           format = "[($duration)]($style) ";
-          style = "bold ${theme.hex.yellow}";
+          style = "bold ${yellow}";
         };
 
         directory = {
           format = "([$path]($style) )";
-          style = "bold ${theme.hex.aqua}";
+          style = "bold ${aqua}";
           truncate_to_repo = false;
         };
 
         git_branch = {
           format = "[$branch ]($style)";
-          style = "bold ${theme.hex.purple}";
+          style = "bold ${purple}";
         };
 
         git_status = {
           format = "([$all_status$ahead_behind]($style) )";
-          style = "bold ${theme.hex.red}";
+          style = "bold ${red}";
         };
 
         character = {
-          success_symbol = "[❯](bold ${theme.hex.green})";
-          error_symbol = "[❯](bold ${theme.hex.red})";
+          success_symbol = "[❯](bold ${green})";
+          error_symbol = "[❯](bold ${red})";
         };
       };
     };
@@ -57,19 +70,19 @@
     fzf = {
       enable = true;
       colors = {
-        bg = theme.hex.bg0;
-        "bg+" = theme.hex.bg1;
-        border = theme.hex.grey0;
-        fg = theme.hex.fg;
-        "fg+" = theme.hex.fg;
-        header = theme.hex.aqua;
-        hl = theme.hex.green;
-        "hl+" = theme.hex.green;
-        info = theme.hex.yellow;
-        marker = theme.hex.red;
-        pointer = theme.hex.purple;
-        prompt = theme.hex.red;
-        spinner = theme.hex.green;
+        bg = bg0;
+        "bg+" = bg1;
+        border = grey0;
+        inherit fg;
+        "fg+" = fg;
+        header = aqua;
+        hl = green;
+        "hl+" = green;
+        info = yellow;
+        marker = red;
+        pointer = purple;
+        prompt = red;
+        spinner = green;
       };
       defaultOptions = [
         "--height=40%"
@@ -119,5 +132,5 @@
     ];
   };
 
-  xdg.dataFile = shadowDesktopEntries pkgs.btop [ "btop" ];
+  xdg.dataFile = hideDesktopEntries pkgs.btop [ "btop" ];
 }

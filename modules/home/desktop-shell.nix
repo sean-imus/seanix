@@ -1,4 +1,13 @@
-{ theme, ... }:
+let
+  # Everforest Dark
+  bg1 = "#343f44";
+  bg3 = "#475258";
+  grey0 = "#7a8478";
+  fg = "#d3c6aa";
+  red = "#e67e80";
+  yellow = "#dbbc7f";
+  green = "#a7c080";
+in
 {
   programs.waybar = {
     enable = true;
@@ -53,7 +62,7 @@
     };
     style = ''
       * {
-        font-family: "${theme.fontFamily}";
+        font-family: "JetBrainsMono Nerd Font";
         font-size: 11px;
         min-height: 0;
         padding: 0;
@@ -63,16 +72,16 @@
       }
       window#waybar {
         background: transparent;
-        color: ${theme.hex.fg};
+        color: ${fg};
       }
       .modules-left { margin-left: 6px; }
       .modules-right { margin-right: 6px; }
-      #power-profiles-daemon.performance { color: ${theme.hex.red}; }
-      #power-profiles-daemon.balanced { color: ${theme.hex.yellow}; }
-      #power-profiles-daemon.power-saver { color: ${theme.hex.green}; }
-      #pulseaudio.muted, #pulseaudio.source-muted { color: ${theme.hex.grey0}; }
-      #battery.charging, #battery.full { color: ${theme.hex.green}; }
-      #battery.critical:not(.charging) { color: ${theme.hex.red}; }
+      #power-profiles-daemon.performance { color: ${red}; }
+      #power-profiles-daemon.balanced { color: ${yellow}; }
+      #power-profiles-daemon.power-saver { color: ${green}; }
+      #pulseaudio.muted, #pulseaudio.source-muted { color: ${grey0}; }
+      #battery.charging, #battery.full { color: ${green}; }
+      #battery.critical:not(.charging) { color: ${red}; }
     '';
   };
 
@@ -80,15 +89,15 @@
     mako = {
       enable = true;
       settings = {
-        font = "${theme.fontFamily} 10";
-        background-color = theme.hex.bg1;
-        text-color = theme.hex.fg;
-        border-color = theme.hex.green;
-        progress-color = "over ${theme.hex.bg3}";
+        font = "JetBrainsMono Nerd Font 10";
+        background-color = bg1;
+        text-color = fg;
+        border-color = green;
+        progress-color = "over ${bg3}";
         border-size = 2;
         default-timeout = 6000;
         "urgency=critical" = {
-          border-color = theme.hex.red;
+          border-color = red;
           default-timeout = 0;
         };
         "mode=do-not-disturb".invisible = 1;

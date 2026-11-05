@@ -1,12 +1,14 @@
 {
+  lib,
   config,
   inputs,
   osConfig,
   pkgs,
-  shadowDesktopEntries,
   ...
 }:
 let
+  hideDesktopEntries = import ../lib/hide-desktop-entries.nix { inherit lib pkgs; };
+
   flake = ''(builtins.getFlake "${osConfig.programs.nh.flake}").nixosConfigurations.notebook'';
   mkKey = key: action: desc: {
     inherit key action;
@@ -230,5 +232,5 @@ in
       '';
     };
   };
-  xdg.dataFile = shadowDesktopEntries config.programs.nixvim.build.packageUnchecked [ "nvim" ];
+  xdg.dataFile = hideDesktopEntries config.programs.nixvim.build.packageUnchecked [ "nvim" ];
 }
