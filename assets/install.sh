@@ -37,7 +37,7 @@ step "Placing the password hash"
 install -Dm600 "$password" /mnt/home/sean/.secrets/password.txt
 
 step "Placing the sops age key"
-install -Dm600 "$agekey" /mnt/home/sean/.config/sops/age/keys.txt
+install -Dm600 "$agekey" /mnt/var/lib/sops-nix/key.txt
 
 step "Installing NixOS"
 nixos-install --no-channel-copy --no-root-password --flake "$repo#notebook"

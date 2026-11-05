@@ -1,7 +1,7 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   sops = {
-    age.keyFile = "/home/sean/.config/sops/age/keys.txt";
+    age.keyFile = "/var/lib/sops-nix/key.txt";
 
     secrets.wifi = {
       sopsFile = ../../secrets/wifi.env;
@@ -11,6 +11,13 @@
   };
 
   home-manager.sharedModules = [
-    { home.packages = [ pkgs.sops ]; }
+    {
+      home.packages = [
+        (pkgs.writeShellScriptBin "sops" ''
+          export SOPS_AGE_KEY="''${SOPS_AGE_KEY:-$(sudo cat ${config.sops.age.keyFile})}"
+          exec ${pkgs.sops}/bin/sops "$@"
+        '')
+      ];
+    }
   ];
 }
