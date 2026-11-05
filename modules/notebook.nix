@@ -6,6 +6,7 @@
 {
   imports = [
     ./nixos/claude-code.nix
+    ./nixos/claude-sudo.nix
     ./nixos/disk.nix
     ./nixos/hardware-dev.nix
     ./nixos/lockscreen.nix
