@@ -1,3 +1,4 @@
+# Sound: PipeWire, media keys and the wiremix mixer on Mod+Ctrl+A.
 { pkgs, ... }:
 let
   locked = bind: { _props.allow-when-locked = true; } // bind;

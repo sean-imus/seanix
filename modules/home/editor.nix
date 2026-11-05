@@ -1,3 +1,5 @@
+# Neovim via nixvim, with LSP for Nix and Python, format on save and
+# <leader> keymaps. Aliases: n = nvim, p = python3.
 {
   lib,
   config,

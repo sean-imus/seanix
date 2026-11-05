@@ -1,3 +1,5 @@
+# fuzzel app launcher, opened with Mod+Space (niri/keybindings.nix).
+# Also used as a picker by the clipboard history (nixos/clipboard.nix).
 let
   # Everforest Dark without '#'; fuzzel wants RRGGBBAA, so alpha is appended below
   bg0 = "2d353b";

@@ -1,3 +1,5 @@
+# Disk layout (applied by disko on install): EFI partition plus an encrypted
+# (LUKS) ext4 root. The swap file is large enough to hibernate.
 {
   disko.devices = {
     disk.main = {

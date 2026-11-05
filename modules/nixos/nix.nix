@@ -1,3 +1,4 @@
+# Nix itself: flakes, no channels, and nh for rebuilding and cleanup.
 {
   nix = {
     channel.enable = false;

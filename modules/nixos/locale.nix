@@ -1,3 +1,4 @@
+# Time zone, language, regional formats and keyboard layout.
 {
   time.timeZone = "Europe/Berlin";
 

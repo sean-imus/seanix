@@ -1,3 +1,4 @@
+# The user sean: account, login shell, and the home-manager modules under home/.
 { inputs, pkgs, ... }:
 {
   users.users.sean = {

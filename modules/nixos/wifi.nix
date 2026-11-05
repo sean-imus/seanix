@@ -1,3 +1,4 @@
+# Known WiFi networks. Names and passwords come from secrets/wifi.env.
 { config, ... }:
 let
   open = n: {

@@ -1,3 +1,6 @@
+# General window manager keys: focus, move, workspaces, monitors, layout and
+# app launchers. Keys that belong to a feature live in its module: audio,
+# bluetooth, clipboard, lockscreen, desktop-shell.
 { lib, ... }:
 let
   locked = bind: { _props.allow-when-locked = true; } // bind;

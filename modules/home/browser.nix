@@ -1,3 +1,6 @@
+# Chromium as four fully separate profiles (work-admin, work-normal, school,
+# privat), each with its own launcher, extensions and the Everforest theme.
+# chromium-privat is the default browser; Mod+B is in niri/keybindings.nix.
 {
   lib,
   pkgs,

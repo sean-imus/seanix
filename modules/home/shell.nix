@@ -1,3 +1,5 @@
+# fish shell and its tools: starship prompt, fzf, zoxide (replaces cd), eza,
+# carapace completions, btop, fastfetch and tldr.
 {
   lib,
   pkgs,

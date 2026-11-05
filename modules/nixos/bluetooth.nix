@@ -1,3 +1,4 @@
+# Bluetooth, managed with bluetui on Mod+Ctrl+B.
 { pkgs, ... }:
 {
   hardware.bluetooth.enable = true;

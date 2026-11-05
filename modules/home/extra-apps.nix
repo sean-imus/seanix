@@ -1,3 +1,4 @@
+# Office and media: LibreOffice (opens text and Markdown files) and mpv.
 {
   lib,
   pkgs,

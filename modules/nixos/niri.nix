@@ -1,3 +1,5 @@
+# niri window manager, system side, and how the desktop starts at boot.
+# The niri configuration itself is in home/niri/.
 {
   programs.niri = {
     enable = true;

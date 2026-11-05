@@ -1,3 +1,5 @@
+# Power management: power profiles, lid behaviour, low-battery hibernate.
+# Idle locking is in lockscreen.nix.
 {
   services = {
     # Performance/balanced/power-saver profiles, shown and switched in waybar

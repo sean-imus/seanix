@@ -1,3 +1,4 @@
+# System fonts.
 { pkgs, ... }:
 {
   # Modules refer to the monospace font by its name, "JetBrainsMono Nerd Font"

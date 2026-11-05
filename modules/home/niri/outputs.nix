@@ -1,3 +1,4 @@
+# Monitor names, resolutions and positions for this laptop's setups.
 {
   wayland.windowManager.niri.settings._children = [
     {

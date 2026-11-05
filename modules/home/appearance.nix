@@ -1,3 +1,5 @@
+# GTK theme (Everforest Dark), icon theme (Papirus) and mouse cursor.
+# The wallpaper is set in niri/settings.nix.
 { pkgs, ... }:
 {
   gtk = {

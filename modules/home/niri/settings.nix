@@ -1,3 +1,4 @@
+# niri behaviour: animations, layout, input devices, window rules, wallpaper.
 { pkgs, ... }:
 let
   # Everforest Dark

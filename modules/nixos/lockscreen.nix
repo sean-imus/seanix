@@ -1,3 +1,5 @@
+# Screen locking: swaylock, locked after 5 minutes idle and before sleep,
+# monitors off after 10 minutes. Super+Alt+L locks manually.
 {
   config,
   lib,

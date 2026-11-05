@@ -1,3 +1,5 @@
+# The notebook host: hardware, boot, and the list of everything it runs.
+# Each feature lives in its own module under nixos/; the user is in sean.nix.
 { pkgs, ... }:
 {
   imports = [

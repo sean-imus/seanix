@@ -1,3 +1,5 @@
+# Clipboard history: everything copied is kept by cliphist,
+# Mod+Ctrl+Y picks an older entry and copies it again.
 { pkgs, ... }:
 {
   environment.systemPackages = [

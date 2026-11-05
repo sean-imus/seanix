@@ -1,3 +1,6 @@
+# Desktop shell around niri: waybar (bottom bar), mako (notifications),
+# swayosd (volume/brightness pop-ups) and the polkit password dialog.
+# Mod+Shift+D toggles do-not-disturb, Mod+Shift+N dismisses all notifications.
 let
   # Everforest Dark
   bg1 = "#343f44";
