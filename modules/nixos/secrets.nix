@@ -1,14 +1,6 @@
 { config, pkgs, ... }:
 {
-  sops = {
-    age.keyFile = "/var/lib/sops-nix/key.txt";
-
-    secrets.wifi = {
-      sopsFile = ../../secrets/wifi.env;
-      format = "dotenv";
-      key = "";
-    };
-  };
+  sops.age.keyFile = "/var/lib/sops-nix/key.txt";
 
   home-manager.sharedModules = [
     {

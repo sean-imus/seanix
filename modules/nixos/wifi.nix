@@ -24,6 +24,14 @@ let
     };
 in
 {
+  # SSIDs and passwords, decrypted by sops-nix to a dotenv file that
+  # NetworkManager substitutes into the $WIFI_* placeholders below
+  sops.secrets.wifi = {
+    sopsFile = ../../secrets/wifi.env;
+    format = "dotenv";
+    key = "";
+  };
+
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ config.sops.secrets.wifi.path ];
 
