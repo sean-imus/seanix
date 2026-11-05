@@ -114,7 +114,6 @@ in
         "playback"
       ];
       "Mod+Ctrl+T" = tui [ "btop" ];
-      "Mod+Ctrl+Y".spawn-sh = "cliphist list | fuzzel --dmenu --with-nth 2 | cliphist decode | wl-copy";
     };
   };
 }

@@ -38,20 +38,6 @@ in
 
     _children = [
       (spawnAtStartup [
-        "wl-paste"
-        "--watch"
-        "cliphist"
-        "store"
-      ])
-      (spawnAtStartup [
-        "wl-paste"
-        "--type"
-        "image/png"
-        "--watch"
-        "cliphist"
-        "store"
-      ])
-      (spawnAtStartup [
         "${pkgs.swaybg}/bin/swaybg"
         "-i"
         "${../../../assets/everforest.png}"

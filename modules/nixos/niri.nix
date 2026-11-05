@@ -6,8 +6,6 @@
   };
 
   environment.systemPackages = [
-    pkgs.wl-clipboard
-    pkgs.cliphist
     pkgs.playerctl
     pkgs.wiremix
     pkgs.bluetui
