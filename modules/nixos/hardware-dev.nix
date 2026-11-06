@@ -34,6 +34,10 @@ in
     }
   ];
 
+  # Lets `arduino-cli core install esp32:esp32` work without editing
+  # arduino-cli.yaml first. The core itself stays an imperative download.
+  environment.sessionVariables.ARDUINO_BOARD_MANAGER_ADDITIONAL_URLS = "https://espressif.github.io/arduino-esp32/package_esp32_index.json";
+
   environment.systemPackages = [
     pkgs.android-tools
     pkgs.arduino-cli
