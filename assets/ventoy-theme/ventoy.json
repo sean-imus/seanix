@@ -1,0 +1,15 @@
+{
+  "theme": {
+    "file": "/ventoy/theme/everforest/theme.txt",
+    "gfxmode": "1920x1080,1024x768,auto",
+    "display_mode": "GUI",
+    "ventoy_left": "2%",
+    "ventoy_top": "2%",
+    "ventoy_color": "#859289",
+    "fonts": [
+      "/ventoy/theme/everforest/fonts/everforest-regular-20.pf2",
+      "/ventoy/theme/everforest/fonts/everforest-bold-20.pf2",
+      "/ventoy/theme/everforest/fonts/everforest-regular-16.pf2"
+    ]
+  }
+}
