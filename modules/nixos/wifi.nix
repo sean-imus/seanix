@@ -40,6 +40,7 @@ in
       wifi-1 = secured "1";
       wifi-2 = secured "2";
       wifi-3 = open "3";
+      wifi-4 = secured "4";
     };
   };
 }
