@@ -1,14 +1,26 @@
 # The user sean: account, login shell, and the home-manager modules under home/.
-{ inputs, pkgs, ... }:
+{
+  config,
+  inputs,
+  pkgs,
+  ...
+}:
 {
   users.users.sean = {
     isNormalUser = true;
-    hashedPasswordFile = "/home/sean/.secrets/password.txt";
+    hashedPasswordFile = config.sops.secrets.sean-password.path;
     extraGroups = [
       "wheel"
       "networkmanager"
     ];
     shell = pkgs.fish;
+  };
+
+  # Password hash, decrypted before users are created
+  sops.secrets.sean-password = {
+    sopsFile = ../secrets/sean-password;
+    format = "binary";
+    neededForUsers = true;
   };
 
   # Users and passwords come only from this config
