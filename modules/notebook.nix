@@ -9,6 +9,7 @@
     ./nixos/claude-sudo.nix
     ./nixos/clipboard.nix
     ./nixos/disk.nix
+    ./nixos/dropbox.nix
     ./nixos/fonts.nix
     ./nixos/hardware-dev.nix
     ./nixos/locale.nix

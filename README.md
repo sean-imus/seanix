@@ -29,6 +29,7 @@ saying what it does.
 | `claude-sudo.nix` | Time-limited passwordless sudo for Claude after a polkit prompt |
 | `clipboard.nix` | Clipboard history with cliphist (Mod+Ctrl+Y) |
 | `disk.nix` | Disk layout: EFI + LUKS-encrypted ext4, swap file |
+| `dropbox.nix` | Dropbox mounted at `~/Dropbox` with rclone (token from `secrets/dropbox.yaml`) |
 | `fonts.nix` | System fonts |
 | `hardware-dev.nix` | USB-serial and Android device access, Arduino/ESP tools |
 | `locale.nix` | Time zone, language, formats, keyboard layout |
