@@ -58,7 +58,6 @@ in
         mutableSettings = true;
 
         settings = {
-          env.CLAUDE_CODE_SUBAGENT_MODEL = "haiku";
           permissions.allow = [ "mcp__plugin_hm_nixos" ];
           inherit statusLine;
           hooks.PostToolUse = [
