@@ -32,6 +32,10 @@ terminal-box: "terminal_box_*.png"
 
   scrollbar = true
   scrollbar_width = 8
+  # "center" draws it inside the menu; the default "east" uses the right border, which menu_*.png lacks.
+  scrollbar_slice = "center"
+  scrollbar_right_pad = 6
+  scrollbar_frame = "scrollbar_*.png"
   scrollbar_thumb = "slider_*.png"
 }
 
@@ -60,37 +64,11 @@ terminal-box: "terminal_box_*.png"
   text = "@VTOY_HOTKEY_TIP@"
 }
 
-+ hbox {
-  left = 25%
-  top = 90%
-  width = 10%
-  height = 24
-  + label { text = "@VTOY_MEM_DISK@" font = "Everforest Regular 16" color = "#dbbc7f" align = "left" }
-}
-
-+ hbox {
-  left = 25%+220
-  top = 90%
-  width = 10%
-  height = 24
-  + label { text = "@VTOY_ISO_RAW@" font = "Everforest Regular 16" color = "#dbbc7f" align = "left" }
-}
-
-+ hbox {
-  left = 50%
-  top = 90%
-  width = 10%
-  height = 24
-  + label { text = "@VTOY_GRUB2_MODE@" font = "Everforest Regular 16" color = "#dbbc7f" align = "left" }
-}
-
-+ hbox {
-  left = 50%+220
-  top = 90%
-  width = 10%
-  height = 24
-  + label { text = "@VTOY_WIMBOOT_MODE@" font = "Everforest Regular 16" color = "#dbbc7f" align = "left" }
-}
+# Four equal centred columns, so the longest flag ("Compatible Mode") fits at 1024x768.
++ label { left = 16% width = 17% top = 90% height = 24 align = "center" font = "Everforest Regular 16" color = "#dbbc7f" text = "@VTOY_MEM_DISK@" }
++ label { left = 33% width = 17% top = 90% height = 24 align = "center" font = "Everforest Regular 16" color = "#dbbc7f" text = "@VTOY_ISO_RAW@" }
++ label { left = 50% width = 17% top = 90% height = 24 align = "center" font = "Everforest Regular 16" color = "#dbbc7f" text = "@VTOY_GRUB2_MODE@" }
++ label { left = 67% width = 17% top = 90% height = 24 align = "center" font = "Everforest Regular 16" color = "#dbbc7f" text = "@VTOY_WIMBOOT_MODE@" }
 
 + hbox {
   left = 90%

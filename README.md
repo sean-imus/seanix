@@ -16,7 +16,8 @@ saying what it does.
 - `modules/home/` — features that only need home-manager
 - `modules/lib/` — plain functions, imported explicitly where used
 - `secrets/` — sops-encrypted secrets
-- `assets/` — wallpaper and install scripts
+- `assets/` — wallpaper
+- `install/` — installer scripts and the Ventoy theme, copied onto the install USB stick
 
 ### System modules (`modules/nixos/`)
 
