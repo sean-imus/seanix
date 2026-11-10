@@ -60,5 +60,5 @@ saying what it does.
 ## Installation
 
 ```bash
-sudo mount --mkdir /dev/mapper/VentoyPart /usb && sh /usb/install.sh
+sudo mount --mkdir /dev/mapper/VentoyPart /usb && sh /usb/usb-unlock.sh
 ```
