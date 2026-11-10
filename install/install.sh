@@ -7,12 +7,9 @@ usb=$1
 repo=$(dirname "$(dirname "$(readlink -f "$0")")")
 total=$(grep -c '^step ' "$0")
 n=0
-password=$usb/Privat/password.txt
 agekey=$usb/Privat/age-key.txt
 
-for f in "$password" "$agekey"; do
-  [ -f "$f" ] || { echo "Missing $f" >&2; exit 1; }
-done
+[ -f "$agekey" ] || { echo "Missing $agekey" >&2; exit 1; }
 
 banner() {
   printf '\033[H\033[2J\033[3J\n  \033[1m%s\033[0m\n\n' "$1"
@@ -32,9 +29,6 @@ swap=$(nix eval --raw "$repo#nixosConfigurations.notebook.config.swapDevices" \
 fallocate -l "${swap#* }M" "/mnt${swap% *}"
 chmod 600 "/mnt${swap% *}"
 mkswap "/mnt${swap% *}"
-
-step "Placing the password hash"
-install -Dm600 "$password" /mnt/home/sean/.secrets/password.txt
 
 step "Placing the sops age key"
 install -Dm600 "$agekey" /mnt/var/lib/sops-nix/key.txt
